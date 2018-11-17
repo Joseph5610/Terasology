@@ -24,6 +24,98 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Enclosed.class)
 public class DirectionTests {
 
+    public static class ReverseTests {
+        @Test
+        public void leftReverse() {
+            Direction dir = Direction.inDirection(1, 0, 0);
+            assertEquals(Direction.LEFT, dir);
+
+            Direction reverse = dir.reverse();
+            assertEquals(Direction.RIGHT, reverse);
+        }
+
+        @Test
+        public void rightReverse() {
+            Direction dir = Direction.inDirection(-1, 0, 0);
+            assertEquals(Direction.RIGHT, dir);
+
+            Direction reverse = dir.reverse();
+            assertEquals(Direction.LEFT, reverse);
+        }
+
+        @Test
+        public void upReverse() {
+            Direction dir = Direction.inDirection(0, 1, 0);
+            assertEquals(Direction.UP, dir);
+
+            Direction reverse = dir.reverse();
+            assertEquals(Direction.DOWN, reverse);
+        }
+
+        @Test
+        public void downReverse() {
+            Direction dir = Direction.inDirection(0, -1, 0);
+            assertEquals(Direction.DOWN, dir);
+
+            Direction reverse = dir.reverse();
+            assertEquals(Direction.UP, reverse);
+        }
+
+        @Test
+        public void forwardReverse() {
+            Direction dir = Direction.inDirection(0, 0, 1);
+            assertEquals(Direction.FORWARD, dir);
+
+            Direction reverse = dir.reverse();
+            assertEquals(Direction.BACKWARD, reverse);
+        }
+
+        @Test
+        public void backwardReverse() {
+            Direction dir = Direction.inDirection(0, 0, -1);
+            assertEquals(Direction.BACKWARD, dir);
+
+            Direction reverse = dir.reverse();
+            assertEquals(Direction.FORWARD, reverse);
+        }
+
+        @Test
+        public void leftHorizontalReverse() {
+            Direction dir = Direction.inHorizontalDirection((float) 1, (float) 0);
+            assertEquals(Direction.LEFT, dir);
+
+            Direction reverse = dir.reverse();
+            assertEquals(Direction.RIGHT, reverse);
+        }
+
+        @Test
+        public void rightHorizontalReverse() {
+            Direction dir = Direction.inHorizontalDirection((float) -1, (float) 0);
+            assertEquals(Direction.RIGHT, dir);
+
+            Direction reverse = dir.reverse();
+            assertEquals(Direction.LEFT, reverse);
+        }
+
+        @Test
+        public void forwardHorizontalReverse() {
+            Direction dir = Direction.inHorizontalDirection((float) 0, (float) 1);
+            assertEquals(Direction.FORWARD, dir);
+
+            Direction reverse = dir.reverse();
+            assertEquals(Direction.BACKWARD, reverse);
+        }
+
+        @Test
+        public void backwardHorizontalReverse() {
+            Direction dir = Direction.inHorizontalDirection((float) 0, (float) -1);
+            assertEquals(Direction.BACKWARD, dir);
+
+            Direction reverse = dir.reverse();
+            assertEquals(Direction.FORWARD, reverse);
+        }
+    }
+
     public static class InDirectionTests {
         @Test
         public void left() {
